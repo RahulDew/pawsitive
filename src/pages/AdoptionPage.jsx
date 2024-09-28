@@ -5,23 +5,52 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import birdMain from "../assets/birdmain.png";
 import Footer from "../components/Footer";
+import adoptcaw from "../assets/adopt-caw.png";
+import adoptcat from "../assets/adopt-cat.png";
+import adoptdog from "../assets/adopt-dog.png";
+import adopthamster from "../assets/adopt-hamster.png";
+import adoptparrot from "../assets/adopt-parrot.png";
+import { desc } from "framer-motion/client";
+
+const AdoptionData = [
+  {
+    name: "Dog",
+    img: adoptdog,
+    breed: "Golden Retriever",
+    age: "2 years",
+    desc: "Friendly, loyal, and energetic. Bella loves playing fetch and enjoys long walks in the park.",
+  },
+  {
+    name: "Cat",
+    img: adoptcat,
+    breed: "Siamese",
+    age: "1 year",
+    desc: "Independent, curious, and affectionate. Whiskers loves to explore his surroundings and enjoys quiet moments curled up by the window.",
+  },
+  {
+    name: "Parrot",
+    img: adoptparrot,
+    breed: "Macaw",
+    age: "3 years",
+    desc: "Social, curious, and vocal. Tweety loves chirping and interacting with humans. ",
+  },
+  {
+    name: "Hamster",
+    img: adopthamster,
+    breed: "Syrian",
+    age: "1 year",
+    desc: "Active, friendly, and loves being held. Pepper enjoys chewing on toys and exploring his surroundings.",
+  },
+  {
+    name: "Caw",
+    img: adoptcaw,
+    breed: "African Grey",
+    age: "5 years",
+    desc: "Gentle, affectionate, and calm. Daisy is very friendly and enjoys human interaction.",
+  },
+];
 
 export default function AdoptionPage() {
-  //   const [formData, setFormData] = useState({
-  //     email: "",
-  //     password: "",
-  //   });
-
-  //   const handleChange = (e) => {
-  //     setFormData({ ...formData, [e.target.name]: e.target.value });
-  //   };
-
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     // Handle form submission logic here
-  //     console.log("Form submitted:", formData);
-  //   };
-
   return (
     <>
       <Navbar />
@@ -59,20 +88,27 @@ export default function AdoptionPage() {
         {/* INFO section */}
 
         <div className="flex flex-wrap gap-5">
-          {[1, 2, 3, 4].map((item, idx) => (
+          {AdoptionData.map((pet, idx) => (
             <div className="w-64 h-72 relative  flex justify-center items-center flex-col ">
-              <div className="w-36 h-36 p-1 rounded-full bg-white absolute -top-20 m-auto">
-                <img src={birdMain} alt="" />
+              <div className="w-36 h-36 p-1 rounded-full bg-white absolute -top-20 m-auto flex justify-center items-center">
+                <img
+                  src={pet.img}
+                  alt={pet.name}
+                  className="object-cover rounded-full"
+                />
               </div>
-              <div className="bg-[#D6995E] w-full h-full rounded-md pt-16 px-5">
-                <h1 className="text-[#4E3000]">Name: </h1>
-                <p className="text-[#4E3000]">Breed: </p>
-                <p className="text-[#4E3000]">Age: </p>
-                <br />
+              <div className="bg-[#D6995E] w-full h-full rounded-md pt-16 px-5 justify-center">
+                <h1 className="text-[#4E3000]">
+                  Name: <span className="font-bold pl-5"> {pet.name} </span>{" "}
+                </h1>
                 <p className="text-[#4E3000]">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Iusto officiis nostrum harum temporibus
+                  Breed: <span className="font-bold pl-5">{pet.breed}</span>
                 </p>
+                <p className="text-[#4E3000]">
+                  Age: <span className="font-bold pl-8">{pet.age}</span>
+                </p>
+                <br />
+                <p className="text-[#4E3000]">{pet.desc}</p>
               </div>
             </div>
           ))}
@@ -83,11 +119,9 @@ export default function AdoptionPage() {
               Why Adopt?
             </h1>
             <p className="text-lg text-[#4E3000]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              quod, voluptatum, quia, quae quos quidem autem doloremque
-              recusandae quibusdam consequuntur voluptatem. Quisquam quod,
-              voluptatum, quia, quae quos quidem autem doloremque recusandae
-              quibusdam consequuntur voluptatem.
+              Adopting these pets from Pawsitive gives them a loving forever
+              home and brings immense joy, companionship, and unconditional
+              love into your life.
             </p>
           </div>
         </div>

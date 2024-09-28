@@ -5,10 +5,10 @@ const NavbarData = {
   logoName: "pawtisite",
   navLinks: [
     { name: "Home", link: "/" },
-    { name: "About", link: "/#about" },
-    { name: "Shop", link: "/#features" },
-    { name: "Feedback", link: "/#interface" },
-    { name: "Contact", link: "/#faqs" },
+    { name: "Adoption", link: "/adoption" },
+    { name: "Shop", link: "/features" },
+    { name: "Rescue", link: "/rescue" },
+    { name: "Consultancy", link: "/consultancy" },
   ],
   mainLinks: [
     { name: "Schedule", link: "/schedule" },
@@ -30,9 +30,13 @@ export default function Navbar() {
           {NavbarData.navLinks.map((navLink, index) => (
             <NavLink
               key={index}
-              href={navLink.link}
+              to={navLink.link}
               onClick={() => handleOnClick(navLink.link)}
-              className={`${"bg-white text-[#B3791D] hover:bg-[#B3791D] hover:text-white"}  w-[80px] lg:w-[100px] text-center  p-1.5 px-2 rounded-full hover:text-primary duration-300`}
+              className={({ isActive, isPending }) =>
+                isActive
+                  ? "bg-[#B3791D] text-white w-[80px] lg:w-[100px] text-center  p-1.5 px-2 rounded-full hover:text-primary duration-300"
+                  : "bg-white text-[#B3791D] hover:bg-[#B3791D] hover:text-white w-[80px] lg:w-[100px] text-center  p-1.5 px-2 rounded-full hover:text-primary duration-300"
+              }
             >
               {navLink.name}
             </NavLink>
